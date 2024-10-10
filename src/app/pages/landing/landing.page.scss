@@ -1,0 +1,60 @@
+.hero-section {
+    text-align: center;
+    margin: 50px 0;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    margin: 20px 0;
+  }
+  
+ /* Section des fonctionnalités */
+.features-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.features-section ion-card {
+    margin: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effet hover pour toutes les cartes */
+.features-section ion-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+  
+  .cta-section {
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .cta-section h2 {
+    margin-bottom: 20px;
+  }
+
+  /* Effet hover pour Performance */
+.performance-card:hover {
+    background-color: #f1c40f; /* Couleur de fond jaune */
+  }
+  
+  /* Effet hover pour Sécurité */
+  .securite-card:hover {
+    background-color: #2ecc71; /* Couleur de fond verte */
+  }
+  
+  /* Effet hover pour Facilité d'utilisation */
+  .facilite-card:hover {
+    background-color: #3498db; /* Couleur de fond bleue */
+  }
+  ion-content {
+    --background: linear-gradient(to right, #3498db, #2ecc71);
+  }
+    
+  

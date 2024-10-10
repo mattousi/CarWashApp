@@ -1,0 +1,31 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+  }
+  
+  ion-card {
+    margin: 20px 0;
+  }
+  
+  ion-icon {
+    color: #3880ff; /* Couleur des icônes */
+  }
+  
+  .register-prompt {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .register-prompt a {
+    text-decoration: none;
+    color: #3880ff;
+    font-weight: bold;
+  }
+  ion-content {
+    --background: linear-gradient(to right, #3498db, #2ecc71); /* Bleu vers vert */
+  }
+  
+  

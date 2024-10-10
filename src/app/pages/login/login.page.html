@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Connexion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="login-container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="lock-closed-outline" size="large"></ion-icon>
+          Se connecter
+        </ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <!-- Champ d'email avec une icône -->
+        <ion-item>
+          <ion-icon name="mail-outline" slot="start"></ion-icon>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input [(ngModel)]="email" type="email" required></ion-input>
+        </ion-item>
+
+        <!-- Champ de mot de passe avec icône et bouton pour afficher/masquer -->
+        <ion-item>
+          <ion-icon name="key-outline" slot="start"></ion-icon>
+          <ion-label position="floating">Mot de passe</ion-label>
+          <ion-input [(ngModel)]="password" [type]="passwordType" required></ion-input>
+          <ion-icon
+            name="{{ passwordIcon }}"
+            slot="end"
+            (click)="togglePasswordVisibility()"
+          ></ion-icon>
+        </ion-item>
+
+        <!-- Bouton mot de passe oublié -->
+        <ion-button fill="clear" size="small" routerLink="/resetpassword">
+          <ion-icon name="help-circle-outline" slot="start"></ion-icon>
+          Mot de passe oublié ?
+        </ion-button>
+
+        <!-- Bouton Connexion -->
+        <ion-button expand="block" (click)="login()">
+          <ion-icon name="log-in-outline" slot="start"></ion-icon>
+          Connexion
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <div class="register-prompt">
+      <p>Pas encore inscrit ? <a routerLink="/signup">Créer un compte</a></p>
+    </div>
+  </div>
+</ion-content>
