@@ -1,0 +1,7 @@
+{
+  "name": "carwashapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
