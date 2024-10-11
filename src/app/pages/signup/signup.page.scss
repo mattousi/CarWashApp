@@ -1,0 +1,52 @@
+ion-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Assure que l'élément occupe toute la hauteur de l'écran */
+    --background: linear-gradient(to right, #3498db, #2ecc71); /* Dégradé de fond */
+    padding: 0 20px; /* Ajoute du padding pour éviter que le formulaire ne touche les bords */
+  }
+  
+  .signup-container {
+    width: 100%;
+    max-width: 400px; /* Limite la largeur du formulaire */
+    background-color: white;
+    padding: 15px; /* Réduit l'espacement interne pour minimiser la hauteur */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Ombre douce */
+    margin: auto; /* Centre le formulaire */
+  }
+  
+  ion-item {
+    margin-bottom: 10px; /* Réduit l'espacement entre les éléments du formulaire */
+  }
+  
+  ion-input,
+  ion-select,
+  ion-checkbox {
+    font-size: 0.9rem; /* Réduit la taille des champs pour minimiser la hauteur */
+  }
+  
+  ion-button {
+    --background: #3880ff; /* Couleur vive */
+    --color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 0; /* Réduit la taille du bouton */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  ion-button:hover {
+    background-color: #3880ff; /* Changement de couleur au survol */
+    transform: scale(1.05); /* Mise en valeur légère au survol */
+  }
+  
+  ion-header {
+    --background: #3880ff; /* Couleur du toolbar */
+    --color: white; /* Couleur du texte et des icônes */
+  }
+  
+  ion-button {
+    --color: white; /* Couleur du bouton et de l'icône dans le toolbar */
+  }
+  

@@ -1,13 +1,86 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>signup</ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Créer un compte</ion-title>
+    
+    <!-- Bouton Login ajouté à droite -->
+    <ion-buttons slot="end"> 
+      <ion-button fill="clear" routerLink="/login"> 
+        <ion-icon name="log-in-outline" slot="icon-only"></ion-icon> <!-- Icône de connexion -->
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">signup</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <div class="signup-container">
+    <form (ngSubmit)="signUp()">
+      <!-- Formulaire d'inscription reste inchangé -->
+      <ion-item>
+        <ion-icon name="person-outline" slot="start"></ion-icon>
+        <ion-label position="floating">Nom complet</ion-label>
+        <ion-input type="text" [(ngModel)]="fullName" name="fullName" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-label position="floating">Mot de passe</ion-label>
+        <ion-input [(ngModel)]="password" [type]="passwordType" name="password" required></ion-input>
+        <ion-icon name="{{ passwordIcon }}" slot="end" (click)="togglePasswordVisibility()"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="lock-open-outline" slot="start"></ion-icon>
+        <ion-label position="floating">Confirmer le mot de passe</ion-label>
+        <ion-input [(ngModel)]="confirmPassword" type="password" name="confirmPassword" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="call-outline" slot="start"></ion-icon>
+        <ion-label position="floating">Numéro de téléphone</ion-label>
+        <ion-input type="tel" [(ngModel)]="phoneNumber" name="phoneNumber" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="car-outline" slot="start"></ion-icon>
+        <ion-label position="floating">Marque et modèle</ion-label>
+        <ion-input type="text" [(ngModel)]="carModel" name="carModel" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="document-text-outline" slot="start"></ion-icon>
+        <ion-label position="floating">Numéro d'immatriculation</ion-label>
+        <ion-input type="text" [(ngModel)]="licensePlate" name="licensePlate" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="car-sport-outline" slot="start"></ion-icon>
+        <ion-label>Type de voiture</ion-label>
+        <ion-select [(ngModel)]="carType" name="carType">
+          <ion-select-option value="sedan">Berline</ion-select-option>
+          <ion-select-option value="suv">SUV</ion-select-option>
+          <ion-select-option value="truck">Camion</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-checkbox [(ngModel)]="termsAccepted" name="termsAccepted"></ion-checkbox>
+        <ion-label>
+          <ion-icon name="checkmark-circle-outline" slot="start"></ion-icon>
+          J'accepte les <a href="/terms">termes et conditions</a>
+        </ion-label>
+      </ion-item>
+
+      <ion-button expand="block" type="submit">
+        <ion-icon name="person-add-outline" slot="start"></ion-icon>
+        S'inscrire
+      </ion-button>
+      
+    </form>
+  </div>
 </ion-content>

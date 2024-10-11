@@ -1,7 +1,21 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Connexion</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="primary"> 
+      <ion-buttons slot="start"> <!-- Ajout d'un bouton de retour -->
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title>
+        <ion-icon name="log-in-outline" slot="start" style="margin-right: 10px;"></ion-icon> <!-- Ajout d'une icône -->
+        Connexion
+      </ion-title>
+      <ion-buttons slot="end">
+        <ion-button fill="clear" routerLink="/signup"> <!-- Bouton à droite pour la création de compte -->
+          <ion-icon name="person-add-outline" slot="start"></ion-icon>
+          S'inscrire
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  
+  
 </ion-header>
 
 <ion-content class="ion-padding">
@@ -47,9 +61,12 @@
         </ion-button>
       </ion-card-content>
     </ion-card>
-
-    <div class="register-prompt">
-      <p>Pas encore inscrit ? <a routerLink="/signup">Créer un compte</a></p>
-    </div>
   </div>
 </ion-content>
+
+<!-- Footer ajouté -->
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-title size="small" class="footer-text">© 2024 CarWashApp - Tous droits réservés</ion-title>
+  </ion-toolbar>
+</ion-footer>

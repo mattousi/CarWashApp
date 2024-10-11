@@ -27,5 +27,17 @@
   ion-content {
     --background: linear-gradient(to right, #3498db, #2ecc71); /* Bleu vers vert */
   }
+
+  .footer-text {
+    font-size: 0.9rem; /* Taille du texte */
+    color: #ffffff; /* Couleur blanche */
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  ion-footer {
+    --background: #1abc9c; /* Couleur de fond personnalisée pour le footer */
+  }
+  
   
   
