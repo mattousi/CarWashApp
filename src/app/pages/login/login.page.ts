@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from '@ionic/angular';
+import { getAuth, signInWithEmailAndPassword } from '@angular/fire/auth'; // Import Firebase Auth
 
 @Component({
   selector: 'app-login',
@@ -36,7 +37,7 @@ export class LoginPage {
     await alert.present();
   }
 
-  // Logique de connexion
+  // Logique de connexion avec Firebase
   login() {
     // Vérification si les champs email et mot de passe sont vides
     if (!this.email || !this.password) {
@@ -44,12 +45,15 @@ export class LoginPage {
       return;
     }
 
-    // Simulate login check
-    if (this.email === 'test@example.com' && this.password === 'password') {
-      // Redirection vers la page d'accueil en cas de succès
-      this.navCtrl.navigateForward('/home');
-    } else {
-      this.presentAlert('Erreur', 'Email ou mot de passe incorrect');
-    }
+    const auth = getAuth();
+    
+    signInWithEmailAndPassword(auth, this.email, this.password)
+      .then((userCredential) => {
+        // Redirection vers la page d'accueil en cas de succès
+        this.navCtrl.navigateForward('/home');
+      })
+      .catch((error) => {
+        this.presentAlert('Erreur', error.message); // Afficher une alerte si la connexion échoue
+      });
   }
 }
