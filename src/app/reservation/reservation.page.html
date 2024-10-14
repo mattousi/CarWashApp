@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/station-details/:id" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Réserver un créneau</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Full Name input field (auto-filled from Firebase but can be edited) -->
+  <ion-item>
+    <ion-label position="stacked">Nom complet</ion-label>
+    <ion-input [(ngModel)]="fullName" placeholder="Entrez votre nom complet"></ion-input>
+  </ion-item>
+
+  <!-- Phone number input field (auto-filled from Firebase but can be edited) -->
+  <ion-item>
+    <ion-label position="stacked">Numéro de téléphone</ion-label>
+    <ion-input [(ngModel)]="phoneNumber" placeholder="Entrez votre numéro de téléphone"></ion-input>
+  </ion-item>
+
+  <!-- Date picker with calendar icon -->
+  <ion-item lines="none" class="custom-date-item">
+    <ion-icon name="calendar-outline" slot="start" class="custom-icon"></ion-icon>
+    <ion-label>Date</ion-label>
+    <ion-datetime
+      displayFormat="DD-MM-YYYY"
+      [(ngModel)]="reservationDate"
+      class="custom-datetime"
+      presentation="date">
+    </ion-datetime>
+  </ion-item>
+
+  <!-- Time picker with clock icon -->
+  <ion-item lines="none" class="custom-time-item">
+    <ion-icon name="alarm-outline" slot="start" class="custom-time-icon"></ion-icon>
+    <ion-label>Heure</ion-label>
+    <ion-datetime
+      displayFormat="HH:mm"
+      [(ngModel)]="reservationTime"
+      class="custom-time-datetime"
+      presentation="time">
+    </ion-datetime>
+  </ion-item>
+
+  <!-- Service selection with wrench icon -->
+  <ion-item lines="full">
+    <ion-icon name="construct-outline" slot="start"></ion-icon>
+    <ion-label>Service</ion-label>
+    <ion-select [(ngModel)]="selectedService">
+      <ion-select-option *ngFor="let service of services" [value]="service.name">
+        {{ service.name }} - {{ service.price }} DT
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- Confirm reservation button -->
+  <ion-button expand="block" color="primary" (click)="confirmReservation()">
+    <ion-icon name="checkmark-circle-outline" slot="start"></ion-icon>
+    Confirmer la réservation
+  </ion-button>
+</ion-content>

@@ -1,0 +1,58 @@
+.custom-item {
+    margin-bottom: 15px;
+  }
+  
+  .custom-icon {
+    font-size: 1.5rem;
+    color: #3a7bd5;
+  }
+  
+  .custom-datetime,
+  .custom-time-datetime {
+    width: 100%;
+    --background: #f9f9f9;
+    --padding-start: 10px;
+    border-radius: 5px;
+  }
+  
+  .animate-btn {
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    background-color: #3a7bd5;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+  }
+  
+  .animate-btn:hover {
+    background-color: #2a5ea5;
+    transform: scale(1.05);
+  }
+  
+  .animate-btn:active {
+    transform: scale(0.98);
+  }
+  
+  .animate-btn ion-icon {
+    margin-right: 8px;
+  }
+  
+  /* Optional: Add a pulse effect */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .animate-btn:hover {
+    animation: pulse 1s infinite;
+  }
+  
+  
+  

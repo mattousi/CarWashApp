@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Détails de la Station</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+  <ion-card *ngIf="station">
+    <ion-card-header>
+      <ion-card-title>{{ station.name }}</ion-card-title>
+      <ion-card-subtitle>{{ station.address }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <!-- Services List -->
+      <h3>Services Disponibles</h3>
+      <ion-list>
+        <ion-item *ngFor="let service of station.services">
+          {{ service.name }} - {{ service.price }} DT
+        </ion-item>
+      </ion-list>
+
+      <!-- Opening Hours -->
+      <h3>Horaires d'ouverture</h3>
+      <ion-list>
+        <ion-item>Lundi : {{ station.openingHours.monday }}</ion-item>
+        <ion-item>Mardi : {{ station.openingHours.tuesday }}</ion-item>
+        <ion-item>Mercredi : {{ station.openingHours.wednesday }}</ion-item>
+        <ion-item>Jeudi : {{ station.openingHours.thursday }}</ion-item>
+        <ion-item>Vendredi : {{ station.openingHours.friday }}</ion-item>
+        <ion-item>Samedi : {{ station.openingHours.saturday }}</ion-item>
+        <ion-item>Dimanche : {{ station.openingHours.sunday }}</ion-item>
+      </ion-list>
+
+    
+
+      <!-- Book a Slot Button -->
+      <ion-button expand="block" color="primary" (click)="bookStation()">
+        Réserver un créneau
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

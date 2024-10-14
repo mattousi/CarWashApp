@@ -1,20 +1,24 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Stations de Lavage</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let station of stations">
+      <ion-icon *ngIf="!station.image" name="camera-outline" slot="start" (click)="addImage(station)"></ion-icon>
+      <ion-thumbnail *ngIf="station.image" slot="start">
+        <img [src]="station.image" />
+      </ion-thumbnail>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+      <ion-label>
+        <h2>{{ station.name }}</h2>
+        <p><ion-icon name="location-outline"></ion-icon> {{ station.address }}</p>
+      </ion-label>
+
+      <!-- Flèche pour plus de détails -->
+      <ion-icon name="chevron-forward-outline" slot="end" (click)="viewStationDetails(station)"></ion-icon> 
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -23,9 +23,8 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule,
     // Initialisez Firebase avec AngularFire
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule,  // Module pour l'authentification
-    AngularFirestoreModule, // Module pour Firestore
-    AngularFireStorageModule // Module pour le stockage Firebase
+    AngularFireAuthModule, // Si vous utilisez l'authentification Firebase
+    AngularFireStorageModule, // Si vous utilisez le stockage Firebase
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent]

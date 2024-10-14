@@ -1,0 +1,108 @@
+.station-details-container {
+    text-align: center;
+    padding: 20px;
+    animation: fadeIn 1s ease-in-out; /* Animation for fade-in */
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .address {
+    font-size: 1.1rem;
+    color: gray;
+    margin: 10px 0;
+    animation: slideInLeft 1s ease-in-out; /* Address sliding in */
+  }
+  
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  ion-list {
+    margin-top: 15px;
+  }
+  
+  ion-item {
+    --border-color: #e0e0e0;
+    margin: 5px 0;
+    animation: fadeIn 0.5s ease-in-out; /* Services fading in */
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    margin: 20px 0 10px;
+    color: #3a3a3a;
+  }
+  
+  ul {
+    text-align: left;
+    margin: 0 auto;
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  ul li {
+    font-size: 1.2rem;
+    margin: 5px 0;
+    animation: fadeIn 0.8s ease-in-out; /* Fading in effect for each list item */
+  }
+  
+  ion-button {
+    margin-top: 20px;
+    animation: bounceIn 1s; /* Adding a bounce effect to the button */
+  }
+  
+  @keyframes bounceIn {
+    from {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  ion-toolbar {
+    --background: #3a7bd5; /* Couleur de fond du toolbar */
+    display: flex;
+    justify-content: space-between; /* Pour bien séparer l'icône à gauche et le titre au centre */
+    align-items: center; /* Centrer verticalement */
+  }
+  
+  ion-buttons {
+    margin-left: 10px; /* Ajuster la marge si nécessaire */
+  }
+  
+  ion-title {
+    flex-grow: 1; /* Permet au titre de s'étendre et se centrer */
+    text-align: center; /* Centrer le texte */
+    font-size: 1.5rem; /* Taille du texte */
+  }
+  
+  ion-buttons ion-icon {
+    font-size: 32px;  /* Augmente la taille de l'icône */
+    color: white;     /* Change la couleur de l'icône */
+  }
+  
+  
