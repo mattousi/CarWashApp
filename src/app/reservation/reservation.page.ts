@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/compat/auth'; // Firebase Authentication
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-reservation',
@@ -19,14 +21,20 @@ export class ReservationPage implements OnInit {
     { name: 'Lavage complet', price: 35 }
   ];
 
-  constructor(private navCtrl: NavController, private afAuth: AngularFireAuth) {}
+  constructor(private navCtrl: NavController, private afAuth: AngularFireAuth,private firestore: AngularFirestore) {}
 
   ngOnInit() {
-    // Get user info from Firebase
+    // Get authenticated user
     this.afAuth.authState.subscribe(user => {
       if (user) {
-        this.fullName = user.displayName || ''; // Fills with user's name from Firebase
-        this.phoneNumber = user.phoneNumber || ''; // Fills with user's phone from Firebase (if available)
+        // Fetch additional details (fullName and phoneNumber) from Firestore
+        const userId = user.uid;
+        this.firestore.collection('users').doc(userId).valueChanges().pipe(
+          map((data: any) => {
+            this.fullName = data?.fullName || ''; // Get fullName from Firestore
+            this.phoneNumber = data?.phoneNumber || ''; // Get phoneNumber from Firestore
+          })
+        ).subscribe();
       }
     });
   }

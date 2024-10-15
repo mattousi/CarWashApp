@@ -39,6 +39,7 @@ export class LoginPage {
 
   // Logique de connexion avec Firebase
   login() {
+    
     // Vérification si les champs email et mot de passe sont vides
     if (!this.email || !this.password) {
       this.presentAlert('Erreur', 'Veuillez entrer votre email et mot de passe');
@@ -48,10 +49,19 @@ export class LoginPage {
     const auth = getAuth();
     
     signInWithEmailAndPassword(auth, this.email, this.password)
-      .then((userCredential) => {
-        // Redirection vers la page d'accueil en cas de succès
+    .then((userCredential) => {
+      // Get the user object
+      const user = userCredential.user;
+
+      // Retrieve the user's token
+      user.getIdToken().then((token) => {
+        // Save token to localStorage or sessionStorage
+        localStorage.setItem('userToken', token);
+
+        // Redirect to the home page after successful login
         this.navCtrl.navigateForward('/home');
-      })
+      });
+    })
       .catch((error) => {
         this.presentAlert('Erreur', error.message); // Afficher une alerte si la connexion échoue
       });

@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { NavController, AlertController } from '@ionic/angular';
 import { getAuth, createUserWithEmailAndPassword } from '@angular/fire/auth'; // Firebase Authentication
 import { getFirestore, doc, setDoc } from '@angular/fire/firestore'; // Firebase Firestore
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-signup',
@@ -21,9 +24,22 @@ export class SignUpPage {
 
   passwordType: string = 'password'; // Par défaut, le mot de passe est masqué
   passwordIcon: string = 'eye-off-outline'; // Icône par défaut pour masquer le mot de passe
-
-  constructor(private navCtrl: NavController, private alertController: AlertController) {}
-
+  users: any[] = [];
+  constructor(private navCtrl: NavController, private alertController: AlertController,private firestore: AngularFirestore) {}
+  getMovies(): Observable<any[]> {
+    
+    return this.firestore.collection('users').valueChanges();
+  }
+  ngOnInit(): void {
+ 
+    // console.log(users)
+   
+    this.getMovies().subscribe(data => {
+      this.users= data;
+      console.log(this.users)
+    });
+ 
+  }
   // Fonction pour l'inscription
   async signUp() {
     if (this.password !== this.confirmPassword) {

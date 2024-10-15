@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { StationServiceService } from '../services/station-service.service';
 
 @Component({
   selector: 'app-home',
@@ -9,13 +10,19 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 })
 export class HomePage {
   stations: any[] = [
-    { id: 1, name: 'Station A', address: '123 Rue Principale, Paris', image: null },
-    { id: 2, name: 'Station B', address: '456 Avenue des Champs, Lyon', image: null },
-    { id: 3, name: 'Station C', address: '789 Boulevard du Sud, Marseille', image: null }
   ];
 
-  constructor(private navCtrl: NavController) {}
-
+  constructor(private navCtrl: NavController,private stationScervice :StationServiceService ) {}
+  ngOnInit(): void {
+ 
+    // console.log(users)
+  
+    this.stationScervice.getStation().subscribe(data => {
+      this.stations= data;
+      console.log(this.stations)
+    });
+ 
+  }
   async addImage(station: any) {
     const image = await Camera.getPhoto({
       quality: 90,
