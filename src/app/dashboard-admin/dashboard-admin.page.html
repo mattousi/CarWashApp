@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Tableau de Bord Admin</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-title>Gérer les Stations</ion-title>
+
+  <!-- Liste des stations avec actions d'édition et suppression -->
+  <ion-list>
+    <ion-item *ngFor="let station of stations">
+      <ion-label>
+        <h2>{{ station.name }}</h2>
+        <p>{{ station.address }}</p>
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-button color="success" (click)="openEditStationModal(station)">
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button color="danger" (click)="confirmDeleteStation(station.id)">
+          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <!-- Bouton flottant pour ajouter une nouvelle station -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openAddStationModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,70 @@
+/* General Page Styling */
+ion-content {
+    --background: #f0f0f5;
+  }
+  
+  ion-title {
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Station List Styling */
+  ion-item {
+    background: #ffffff;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  ion-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  ion-label h2 {
+    font-size: 1.2rem;
+    color: #000;
+  }
+  
+  ion-label p {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  /* Button Animations */
+  ion-button {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  ion-button:hover {
+    background-color: #008080;
+    transform: scale(1.05);
+  }
+  
+  ion-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+  }
+  
+  ion-button:hover ion-icon {
+    transform: rotate(20deg);
+  }
+  
+  /* Floating Action Button (FAB) Styling */
+  ion-fab-button {
+    --background: #4caf50;
+    --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  ion-fab-button:hover {
+    transform: rotate(180deg) scale(1.1);
+    --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  ion-fab-button ion-icon {
+    font-size: 1.5rem;
+  }
+  

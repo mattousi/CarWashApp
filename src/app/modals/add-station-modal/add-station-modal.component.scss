@@ -1,0 +1,14 @@
+ion-header {
+    --background: #3880ff;  /* Blue header background */
+    color: white;
+  }
+  
+  ion-toolbar ion-title {
+    font-weight: bold;
+  }
+  
+  ion-button {
+    margin-top: 20px;
+    --background: #10dc60;  /* Green save button */
+  }
+  

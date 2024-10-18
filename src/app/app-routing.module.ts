@@ -27,6 +27,7 @@ const routes: Routes = [
     path: 'resetpassword',
     loadChildren: () => import('./pages/resetpassword/resetpassword.module').then(m => m.ResetpasswordPageModule)
   },
+  
   {
     path: 'station-details/:id', // Ajout du paramètre dynamique :id
     loadChildren: () => import('./station-details/station-details.module').then( m => m.StationDetailsPageModule)
@@ -34,7 +35,17 @@ const routes: Routes = [
   {
     path: 'reservation/:stationId',
     loadChildren: () => import('./reservation/reservation.module').then(m => m.ReservationPageModule)
-  }
+  },
+  {
+    path: 'dashboard-admin',
+    loadChildren: () => import('./dashboard-admin/dashboard-admin.module').then( m => m.DashboardAdminPageModule)
+  },
+  {
+    path: 'dashboard-admin',
+    loadChildren: () => import('./dashboard-admin/dashboard-admin.module').then( m => m.DashboardAdminPageModule)
+  },
+
+
  
 ];
 
